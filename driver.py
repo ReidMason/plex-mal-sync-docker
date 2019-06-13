@@ -26,7 +26,7 @@ class Driver:
     chrome_options.add_argument("--log-level=3")
 
     self.driver = webdriver.Chrome(chrome_options=chrome_options)
-    self.wait = WebDriverWait(self.driver, 30)
+    self.wait = WebDriverWait(self.driver, 10)
     log(f"\rWeb driver started", Fore.GREEN)
 
   def get(self, url):
