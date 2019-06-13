@@ -14,8 +14,9 @@ from config import MAPPING_AGE
 
 def log(text, *style):
   """ Logs text with a specified style using colorama styles """
-  sys.stdout.write((''.join(style) + text).ljust(100) + Style.RESET_ALL)
-  sys.stdout.flush()
+  print(text)
+  # sys.stdout.write((''.join(style) + text).ljust(100) + Style.RESET_ALL)
+  # sys.stdout.flush()
 
 
 def load_json(filepath):
