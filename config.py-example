@@ -1,0 +1,20 @@
+# MyAnimeList login info
+import os
+
+MAL_USERNAME = 'Username' # Required
+MAL_PASSWORD = 'Password' # Required
+
+# Plex server info
+SERVER_TOKEN = 'ServerToken' # Required
+SERVER_URL = 'http://127.0.0.1:32400' # Required
+
+# Plex library name to scan
+LIBRARY = 'Anime'
+
+# Max age of tvdb to anidb mapping file in days
+MAPPING_AGE = 7
+
+# Default location for chromedriver and ublock
+dir_path = os.path.dirname(os.path.realpath(__file__))
+UBLOCK_PATH = os.path.join(dir_path, 'tools/ublock')
+CHROMEDRIVER_PATH = os.path.join(dir_path, 'tools/chromedriver.exe')
