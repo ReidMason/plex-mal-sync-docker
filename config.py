@@ -16,5 +16,5 @@ MAPPING_AGE = 7
 
 # Default location for chromedriver and ublock
 dir_path = os.path.dirname(os.path.realpath(__file__))
-UBLOCK_PATH = os.path.join(dir_path, 'tools/ublock')
+# UBLOCK_PATH = os.path.join(dir_path, 'tools/ublock')
 CHROMEDRIVER_PATH = os.path.join(dir_path, 'tools/chromedriver.exe')
