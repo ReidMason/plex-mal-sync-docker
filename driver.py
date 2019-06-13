@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
-from config import UBLOCK_PATH, CHROMEDRIVER_PATH, MAL_USERNAME, MAL_PASSWORD
+from config import CHROMEDRIVER_PATH, MAL_USERNAME, MAL_PASSWORD
 from utils import log
 
 
