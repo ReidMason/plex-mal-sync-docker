@@ -7,9 +7,12 @@ from driver import Driver
 from mal_list import MalList
 from plex_connection import PlexConnection
 from utils import log
+from config import MAL_USERNAME
 
 # Initialise colorama
 init()
+
+print("Started sync")
 
 # Connect to plex server
 PLEX_SERVER = PlexConnection(SERVER_URL, SERVER_TOKEN)
@@ -17,7 +20,7 @@ PLEX_SERVER = PlexConnection(SERVER_URL, SERVER_TOKEN)
 driver = Driver()
 
 TVDB_MYANIMELIST_MAPPING = PLEX_SERVER.update_tvdbid_myanimelist_mappings(driver)
-MAL_LIST = MalList('SkippyTheSnake')
+MAL_LIST = MalList(MAL_USERNAME)
 
 
 def get_shows_to_update():
@@ -107,3 +110,5 @@ if len(to_update) > 0:
 
   log(f"\rUpdates complete", Fore.GREEN)
 driver.quit()
+
+print("Finished sync")

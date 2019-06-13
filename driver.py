@@ -75,7 +75,7 @@ class Driver:
       ele.click()
 
     except:
-      log("\n Failing to click element")
+      log("\n Failing to click element, moving on.")
 
   def wait_for(self, css_selector):
     """ Waits for an element to be loaded or become visible on the webpage.
@@ -112,7 +112,11 @@ class Driver:
     self.send_keys('#login-password', password)
 
     # Wait for privacy policy message to disappear
-    self.wait.until_not(ec.presence_of_element_located((By.CSS_SELECTOR, '.modal-container')))
+    try:
+      self.wait.until_not(ec.presence_of_element_located((By.CSS_SELECTOR, '.modal-container')))
+    except:
+      log("\n Failed to find privacy policy message, moving on.")
+      
     self.click('.pt16 .btn-form-submit')  # Click login button
     log(f"\rLogged in successfully as user {MAL_USERNAME}", Fore.GREEN)
 
