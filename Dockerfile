@@ -13,4 +13,4 @@ ADD . /app
 RUN pip install -r requirements.txt
 
 # Run the program
-CMD ["python3", "main.py"]
+CMD ["python3", "-u", "main.py"]
