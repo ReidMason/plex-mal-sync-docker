@@ -69,9 +69,13 @@ class Driver:
 
     :param css_selector: The css selector to locate the target element.
     """
-    ele = self.find_element(css_selector)
-    self.wait.until(ec.element_to_be_clickable((By.CSS_SELECTOR, css_selector)))
-    ele.click()
+    try:
+      ele = self.find_element(css_selector)
+      self.wait.until(ec.element_to_be_clickable((By.CSS_SELECTOR, css_selector)))
+      ele.click()
+
+    except:
+      log("\n Failing to click element")
 
   def wait_for(self, css_selector):
     """ Waits for an element to be loaded or become visible on the webpage.
