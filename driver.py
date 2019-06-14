@@ -116,7 +116,7 @@ class Driver:
       self.wait.until_not(ec.presence_of_element_located((By.CSS_SELECTOR, '.modal-container')))
     except:
       log("\n Failed to find privacy policy message, moving on.")
-      
+
     self.click('.pt16 .btn-form-submit')  # Click login button
     log(f"\rLogged in successfully as user {MAL_USERNAME}", Fore.GREEN)
 

@@ -1,10 +1,9 @@
 import json
 import os
-import sys
 import time
 import urllib.request
 import xml.etree.ElementTree as et
-
+from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 from colorama import Style, Fore
@@ -14,7 +13,9 @@ from config import MAPPING_AGE
 
 def log(text, *style):
   """ Logs text with a specified style using colorama styles """
-  print(((''.join(style) + text).ljust(100) + Style.RESET_ALL).replace('\r', ''))
+  text = ((''.join(style) + text) + Style.RESET_ALL).replace('\r', '').replace('\n', '')
+  print(datetime.today().strftime('%d-%m-%Y %H:%M:%S') + ' ' + text)
+
   # sys.stdout.write((''.join(style) + text).ljust(100) + Style.RESET_ALL)
   # sys.stdout.flush()
 

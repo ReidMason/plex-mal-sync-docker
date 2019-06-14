@@ -66,6 +66,7 @@ class PlexConnection:
 
     # If the myanimelist id could not be found then it needs to logged so I can add the mapping manually
     if myanimelist_id is None:
+      log(f"Error: No mapping for anime '{show.title}' tvdbid: {tvdbid} season: {season}", Fore.RED)
       utils.add_to_error_log(show.title, tvdbid, season)
 
     self.tvdb_myanimelist_mapping[tvdbid][season] = str(myanimelist_id)
