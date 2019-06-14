@@ -14,7 +14,7 @@ from config import MAPPING_AGE
 
 def log(text, *style):
   """ Logs text with a specified style using colorama styles """
-  print(text)
+  print(((''.join(style) + text).ljust(100) + Style.RESET_ALL).replace('\r', ''))
   # sys.stdout.write((''.join(style) + text).ljust(100) + Style.RESET_ALL)
   # sys.stdout.flush()
 
