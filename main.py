@@ -7,5 +7,5 @@ do_sync()
 schedule.every().day.at("19:00").do(do_sync)
 
 while True:
-  schedule.run_pending()
-  time.sleep(60)  # wait one minute
+    schedule.run_pending()
+    time.sleep(60)  # wait one minute
