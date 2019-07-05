@@ -1,8 +1,5 @@
 FROM joyzoursky/python-chromedriver:3.7-selenium
 
-# Install lxml
-RUN apt-get -y install python3-lxml
-
 # Set the working directory to /app
 WORKDIR /app
 
