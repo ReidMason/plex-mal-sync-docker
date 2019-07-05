@@ -16,12 +16,9 @@ class Driver:
         log(f"Starting web driver", Fore.CYAN)
         # Setup chrome options
         chrome_options = webdriver.ChromeOptions()
-        # chrome_options.add_argument('--headless')
-        # Load the ublock extension to get rid of ads
-        # chrome_options.add_argument(f'load-extension={UBLOCK_PATH}')
-
-        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--no-sandbox')
 
         # Remove unwanted logs
         chrome_options.add_argument("--log-level=3")
