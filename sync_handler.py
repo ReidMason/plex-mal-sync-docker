@@ -43,10 +43,10 @@ def do_sync():
                 # Get details for the season
                 episodes_watched = len([x for x in season if x.isWatched])
                 mal_id = TVDB_MYANIMELIST_MAPPING[tvdbid][str(season.seasonNumber)]
-                # If there is no mapping print and error
+                # If there is no mapping print an error
                 if mal_id in [None, "None"]:
-                    log(f"No mapping found for {show.title} season {season.seasonNumber}. Check the error file.",
-                        Fore.YELLOW)
+                    season_number = season.seasonNumber
+                    log(f"No mapping found for {show.title} season {season_number}. Check the error file.", Fore.YELLOW)
                     continue
                 on_list, anime_data = MAL_LIST.get_anime(mal_id)
 
