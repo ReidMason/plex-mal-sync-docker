@@ -103,7 +103,7 @@ class Driver:
         # Add cookies to prevent gdpr popups
         self.driver.add_cookie({'name': 'm_gdpr_mdl', 'value': '1'})
         self.driver.add_cookie({'name' : 'euconsent',
-                                'value': 'BOjNYfhOjNYfhAnADAENCaAAAAAo1rv___7__9_-____9uz7Ov_v_f__33e87_9v_h_7_-___u_-3zd4u_1vf99yfm1-7ctr3tp_87uesm_Xur__59__3z3_9phPr8k89r6337EwwEA'})
+                                'value': 'BOlB62KOlB62KAnADAENCgAAAAApp7v______9______9uz_Ov_v_f__33e8__9v_l_7_-___u_-3zd4u_1vf99yfm1-7etr3tp_87ues2_Xur__79__3z3_9phP78k89r7337Ew-v02'})
         self.driver.add_cookie({'name': 'pubconsent', 'value': 'BOjNYfhOjNYfhAnCaABAAAABAA'})
         # Refresh to apply cookies
         self.driver.refresh()
