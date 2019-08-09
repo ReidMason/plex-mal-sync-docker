@@ -104,7 +104,6 @@ def do_sync():
         driver.myanimelist_login()
 
         # Update all shows that need updating
-        log(f"Updating shows 0/{len(to_update)}", Fore.CYAN)
         i = 0
         for mal_id, data in to_update.items():
             i += 1
