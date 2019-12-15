@@ -7,6 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 from utils import log
+import time
 
 
 class Driver:
@@ -22,6 +23,8 @@ class Driver:
         # Remove unwanted logs
         chrome_options.add_argument("--log-level=3")
         self.driver = webdriver.Chrome(chrome_options = chrome_options)
+        self.driver.set_window_position(0, 0)
+        self.driver.set_window_size(2560, 1080)
         self.wait = WebDriverWait(self.driver, 10)
         log(f"Web driver started")
 
@@ -111,10 +114,14 @@ class Driver:
         except selenium.common.exceptions.TimeoutException and selenium.common.exceptions.NoSuchElementException:
             return False
 
+    def take_screenshot(self):
+        self.driver.get_screenshot_as_file(f'data/{time.time()}.png')
+
     def accept_privacy_notices(self):
         notice_clicked = False
 
         while not notice_clicked:
+            self.take_screenshot()
             log("Checking for notices")
             # Larger privacy notice
             if notice_clicked := self.element_exists('.details_save--1ja7w', False):
@@ -138,6 +145,7 @@ class Driver:
             return True
 
         for i in range(1, 6):
+            self.take_screenshot()
             log(f"Logging into MyAnimeList attempt: {i}")
             self.get(f"https://myanimelist.net/login.php?from=%2F")
             self.accept_privacy_notices()
