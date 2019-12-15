@@ -141,7 +141,8 @@ class Driver:
             log("Notices done")
 
     def apply_cookies(self):
-        self.driver.add_cookie({'name': 'm_gdpr_mdl', 'value': '1', 'domain': 'https://myanimelist.net/'})
+        self.get(f"https://myanimelist.net/")
+        self.driver.add_cookie({'name': 'm_gdpr_mdl', 'value': '1'})
 
     def login_myanimelist(self, mal_username: str, mal_password: str) -> bool:
         if self.logged_in(wait = False):
