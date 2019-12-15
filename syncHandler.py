@@ -46,7 +46,9 @@ def get_update_data(plex_anime: PlexAnime, list_anime: ListAnime):
 
 def apply_update(update: dict, config: Config, mapping: Mapping, driver: Driver):
     log(f"Updating series {update.get('title')}")
-    driver.login_myanimelist(config.mal_username, config.mal_password)
+    if not driver.login_myanimelist(config.mal_username, config.mal_password):
+        log("Failed to log into MyAnimeList")
+        return
 
     # Load the anime page
     if not driver.load_anime_page(update.get('mal_id')):

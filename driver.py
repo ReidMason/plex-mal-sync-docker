@@ -133,9 +133,9 @@ class Driver:
                 notice_clicked = True
             log("Notices done")
 
-    def login_myanimelist(self, mal_username: str, mal_password: str):
+    def login_myanimelist(self, mal_username: str, mal_password: str) -> bool:
         if self.logged_in(wait = False):
-            return
+            return True
 
         for i in range(1, 6):
             log(f"Logging into MyAnimeList attempt: {i}")
@@ -148,7 +148,8 @@ class Driver:
 
             if self.logged_in():
                 log(f"Logged in successfully as user {mal_username}")
-                break
+                return True
+        return False
 
     def logged_in(self, wait: bool = True) -> bool:
         log("Checking if login was successful")
