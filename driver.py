@@ -123,17 +123,17 @@ class Driver:
         while not notice_clicked:
             self.take_screenshot()
             log("Checking for notices")
-            # First small privacy notice
-            if notice_clicked := self.element_exists('button', False):
-                self.click('button', False)
+            # Larger privacy notice
+            if notice_clicked := self.element_exists('.details_save--1ja7w', False):
+                self.click('.details_save--1ja7w', False)
 
             # Click the medium privacy notice
             elif notice_clicked := self.element_exists('.intro_acceptAll--23PPA', False):
                 self.click('.intro_acceptAll--23PPA', False)
 
-            # Larger privacy notice
-            elif notice_clicked := self.element_exists('.details_save--1ja7w', False):
-                self.click('.details_save--1ja7w', False)
+            # First small privacy notice
+            elif notice_clicked := self.element_exists('button', False):
+                self.click('button', False)
 
             else:
                 # No notices were found
