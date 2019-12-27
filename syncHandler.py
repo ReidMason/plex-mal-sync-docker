@@ -75,7 +75,6 @@ def start_sync(config: Config):
             list_anime = anime_list.get_anime(show.mal_id)
             if list_anime is not None and update_required(show, list_anime):
                 apply_update(get_update_data(show, list_anime), config, mapping, driver)
-        break
 
     driver.quit()
     log("Sync complete")
