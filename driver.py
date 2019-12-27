@@ -1,4 +1,3 @@
-import time
 import selenium.common
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException, WebDriverException
@@ -16,7 +15,7 @@ class Driver:
         log(f"Starting web driver")
         # Setup chrome options
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument('--headless')
+        # chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--no-sandbox')
 
@@ -176,12 +175,16 @@ class Driver:
         if self.element_exists('#showAddtolistAnime', wait = False):
             self.click('#showAddtolistAnime')
 
+    def get_total_episodes(self):
+        total_eps = self.find_element('#curEps').text
+        return int(total_eps) if total_eps != '?' else -1
+
     def select_watch_status(self, watch_status: str):
         status_conversion = {'watching'     : 1,
                              'completed'    : 2,
                              'on hold'      : 3,
                              'dropped'      : 4,
-                             'plan to watch': 6}
+                             'plan to watch': 5}
         # Click the watched status
         self.click(f"#myinfo_status > option:nth-child({status_conversion.get(watch_status)})")
 
